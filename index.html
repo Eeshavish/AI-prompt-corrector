@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promptly | AI Prompt Corrector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <span>Promptly</span>
+            </div>
+
+            <div class="sidebar-menu">
+                <p class="menu-label">WORKSPACE</p>
+
+                <button class="menu-item active" id="homeBtn">
+                    <span>⌂</span> Home
+                </button>
+
+                <button class="menu-item" id="historyBtn">
+                    <span>◷</span> History
+                </button>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-note">
+                    <span class="note-icon">✦</span>
+                    <p>Turn simple ideas into powerful prompts.</p>
+                </div>
+                <p class="sidebar-footer">PROMPTLY · 2026</p>
+            </div>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+                <div>
+                    <p class="breadcrumb">Workspace / <span>Prompt Improver</span></p>
+                </div>
+
+                <div class="topbar-right">
+                    <span class="status-dot"></span>
+                    <span class="status-text">AI Workspace</span>
+                </div>
+            </header>
+
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-badge">
+                    <span>✦</span> AI POWERED PROMPT ENGINE
+                </div>
+
+                <h1>Make your prompts<br>
+                    <span>more powerful.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Turn your simple ideas into clear, detailed and effective
+                    prompts that get better results.
+                </p>
+            </section>
+
+
+            <!-- Prompt Input Section -->
+            <section class="prompt-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Your prompt</h2>
+                        <p>Write your idea in simple words.</p>
+                    </div>
+                    <span class="step-label">STEP 01</span>
+                </div>
+
+                <div class="input-card">
+
+                    <textarea
+                        id="promptInput"
+                        placeholder="e.g. Make a website for a restaurant, create a Java calculator or write a story..."
+                        maxlength="5000"
+                    ></textarea>
+
+                    <div class="input-bottom">
+                        <span id="charCount">0 / 5000</span>
+                        <button id="clearInput" class="text-button">Clear</button>
+                    </div>
+
+                </div>
+
+
+                <!-- Category -->
+                <div class="category-section">
+                    <div class="section-heading small-heading">
+                        <div>
+                            <h2>Choose a category</h2>
+                            <p>What do you want to create?</p>
+                        </div>
+                    </div>
+
+                    <div class="category-grid">
+
+                        <button class="category-btn selected" data-category="Coding">
+                            <span class="category-icon">&lt;/&gt;</span>
+                            <span>Coding</span>
+                        </button>
+
+                        <button class="category-btn" data-category="Education">
+                            <span class="category-icon">▤</span>
+                            <span>Education</span>
+                        </button>
+
+                        <button class="category-btn" data-category="Writing">
+                            <span class="category-icon">✎</span>
+                            <span>Writing</span>
+                        </button>
+
+                        <button class="category-btn" data-category="Business">
+                            <span class="category-icon">◈</span>
+                            <span>Business</span>
+                        </button>
+
+                        <button class="category-btn" data-category="Image Generation">
+                            <span class="category-icon">▧</span>
+                            <span>Image</span>
+                        </button>
+
+                    </div>
+                </div>
+
+
+                <!-- Improve Button -->
+                <button id="improveBtn" class="improve-btn">
+                    <span>✦</span>
+                    <span>Improve my prompt</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+                <p class="button-hint">
+                    <span>✦</span> Transform your idea into a better prompt
+                </p>
+
+            </section>
+
+
+            <!-- Result Section -->
+            <section class="result-section" id="resultSection">
+
+                <div class="result-heading">
+                    <div>
+                        <span class="result-badge">✦ RESULT</span>
+                        <h2>Your prompt transformation</h2>
+                    </div>
+                </div>
+
+                <div class="comparison-grid">
+
+                    <!-- Original -->
+                    <div class="result-card">
+                        <div class="result-card-header">
+                            <span class="result-label">ORIGINAL</span>
+                        </div>
+
+                        <div class="result-content">
+                            <p id="originalResult">
+                                Your original prompt will appear here.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Improved -->
+                    <div class="result-card improved-card">
+
+                        <div class="result-card-header">
+                            <span class="result-label improved-label">
+                                <span>✦</span> IMPROVED
+                            </span>
+
+                            <button id="copyBtn" class="copy-btn">
+                                <span>▣</span> Copy
+                            </button>
+                        </div>
+
+                        <div class="result-content">
+                            <p id="improvedResult">
+                                Your improved prompt will appear here.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- History Section -->
+            <section class="history-section" id="historySection">
+
+                <div class="history-heading">
+                    <div>
+                        <h2>Recent prompts</h2>
+                        <p>Your previously improved prompts.</p>
+                    </div>
+
+                    <button id="clearHistory" class="text-button">
+                        Clear history
+                    </button>
+                </div>
+
+                <div id="historyList" class="history-list">
+                    <div class="empty-history">
+                        <span>◷</span>
+                        <p>No prompt history yet.</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="footer">
+                <span>✦ Promptly</span>
+                <span>Craft better prompts. Create better results.</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
